@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Crypto Converter</title>
-    <script src="script.js"></script>
+    
 </head>
 <body>
     <div class="container">
@@ -15,24 +15,27 @@
         <div class="currency">
             <form id="cryptoConverter">
                 <div class="amount">
-                    <input type="text" name="amount">
+                    <input type="text" id="amount_i">
                 </div>
                 <div class="from">
                     <datalist id="from_currency">
                     </datalist>
-                    <input  autoComplete="on" list="from_currency"/> 
+                    <input  autoComplete="on" list="from_currency" id="from_currency_i"/> 
                 </div>
                 <div class="to">
                     <datalist id="to_currency">
                     </datalist>
-                    <input  autoComplete="on" list="to_currency"/> 
+                    <input  autoComplete="on" list="to_currency" id="to_currency_i"/> 
                 </div>
                 <div class="submit">
-                    <button type="submit">Convert</button>
+                    <button type="button" id="convertButton">Convert</button>
                 </div>
             </form>
         </div>
-    </div>
+        <div class="result">
 
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

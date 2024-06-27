@@ -4,11 +4,11 @@ const options = {
 }
 
 function updateCurrencyList() {
-    fetch('https://min-api.cryptocompare.com/data/blockchain/list', options)
+    fetch('https://min-api.cryptocompare.com/data/all/coinlist', options)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            const currencyList = Object.values(data.Data).map(currency => currency.symbol);
+            //console.log(data);
+            const currencyList = Object.values(data.Data).map(currency => currency.Symbol);
             const fromCurrencyDataList = document.getElementById('from_currency')
             const toCurrencyDataList = document.getElementById('to_currency')
 
@@ -25,6 +25,26 @@ function updateCurrencyList() {
         .catch(error => console.error("Ошибка при получении данных:", error));
 
     }
-    
+
+function getPrice(amount, firstCurrency, secondCurrency){
+    fetch(`https://min-api.cryptocompare.com/data/price?fsym=${firstCurrency}&tsyms=${secondCurrency}`, options)
+    .then(response => response.json())
+    .then(data => {
+        let result = amount * data[secondCurrency]
+        document.querySelector('.result').textContent = `Result is ${result}`;
+        //console.log(data[secondCurrency])
+        //console.log(data)
+    })
+}
+
+function convertValues() {
+    let amount = document.getElementById('amount_i').value;
+    let fromCurrency = document.getElementById('from_currency_i').value;
+    let toCurrency = document.getElementById('to_currency_i').value;
+    getPrice(amount, fromCurrency, toCurrency);
+}
+
+document.getElementById('convertButton').addEventListener('click', convertValues);
+
 updateCurrencyList();
 setInterval(updateCurrencyList, 300000);
