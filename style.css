@@ -1,0 +1,16 @@
+.header, .currency {
+    display: block; 
+    margin-bottom: 10px;
+  }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+.amount, .from, .to, .submit {
+    display: block;
+    margin-bottom: 10px;
+  }
