@@ -1,21 +1,23 @@
-.header,
-.currency {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+body {
     height: 100vh;
 }
 
-.amount,
-.from,
-.to,
-.submit {
-    display: block;
-    margin-bottom: 10px;
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+header ul {
+    display: flex;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    text-decoration: none;
+    margin-right: 25px;
+}
+
