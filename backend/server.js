@@ -7,6 +7,7 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 app.use("/backend", express.static(path.join(__dirname, "backend")));
 
 app.get("/", (req, res) => {
+    debugger;
     res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
